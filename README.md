@@ -56,4 +56,5 @@ Press CTRL+C to quit
  * Debugger is active!
  * Debugger PIN: 113-666-066
 ```
-Now visit [`http://localhost:5000/`](http://localhost:5000/) in your web browser to view the app.
+Now visit [`http://localhost:5000/index`](http://localhost:5000//index) in your web browser to view the app.
+Visit [`http://localhost:5000/add`](http://localhost:5000//add) to add items to the list
