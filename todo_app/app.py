@@ -10,10 +10,8 @@ app = Flask(__name__)
 app.config.from_object(Config())
 
 
-@app.route('/index', methods=['GET','POST'])
+@app.route('/index', methods=['GET'])
 def index():
-    if request.method == "POST":
-        session_items.add_item(request.form.get("title"))
     return render_template("index.html", itemsList = session_items.get_items())
 
 @app.route('/add', methods=['GET','POST'])
