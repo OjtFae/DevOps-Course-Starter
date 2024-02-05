@@ -13,6 +13,9 @@ class Item:
     @classmethod
     def from_trello_card(cls, card, list):
         return cls(card['id'], card['name'], list["name"])
+    
+    def  __str__(self):
+            return f"{self.name}  - status: {self.status}"
 
 
 
@@ -79,11 +82,27 @@ def add_item(config:Config, title:str):
     """
     userKey= config["TRELLO_API_KEY"]
     userToken= config["TRELLO_API_TOKEN"]
-    listId= config["TRELLO_STD_LIST"]
+    boardId= config["TRELLO_BOARD_ID"]
+    
+    get_lists_url = f"https://api.trello.com/1/boards/{boardId}/lists"
+    get_lists_query = {
+    'key': userKey,
+    'token': userToken,
+    }
+    get_lists_response = requests.request(
+    "GET",
+    get_lists_url,
+    params=get_lists_query,
+    verify=False)
+    
+    list_id = None
+    for trello_list in get_lists_response.json():
+        if trello_list["name"] == "New Items":
+            list_id = trello_list["id"]
     
     url = "https://api.trello.com/1/cards"
     query = {
-    'idList': listId,
+    'idList': list_id,
     'key': userKey,
     'token': userToken,
     'name': title

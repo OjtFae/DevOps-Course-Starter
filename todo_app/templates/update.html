@@ -13,7 +13,7 @@
       <h2>Items</h2>
         {% for item in itemsList %}
             <p>
-              {{ item.name, item.status }}
+              {{ item }}
             <p>
             <input type="radio" id="New Items" name="{{item.id}}" value="New Items">
             <label for="New Items">New Items</label>
