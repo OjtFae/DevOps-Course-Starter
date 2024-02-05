@@ -36,7 +36,18 @@ You'll also need to clone a new `.env` file from the `.env.template` to store lo
 $ cp .env.template .env  # (first time only)
 ```
 
-The `.env` file is used by flask to set environment variables when running `flask run`. This enables things like development mode (which also enables features like hot reloading when you make a file change). There's also a [SECRET_KEY](https://flask.palletsprojects.com/en/2.3.x/config/#SECRET_KEY) variable which is used to encrypt the flask session cookie.
+The `.env` file is used by flask to set environment variables when running `flask run`. This must be configured by the user before running the application.
+
+You must have a Trello account to use this application. Please make a note of your: 
+
+- API Key
+- API Token
+- Board ID
+- "New Items" list ID
+
+and store these values in the relevant variables in `.env` file.
+
+See the [Trello REST API](https://developer.atlassian.com/cloud/trello/rest/) docs for more information on how you can find your board's and the ID of the "New Items" list
 
 ## Running the App
 
@@ -57,4 +68,5 @@ Press CTRL+C to quit
  * Debugger PIN: 113-666-066
 ```
 Now visit [`http://localhost:5000/index`](http://localhost:5000//index) in your web browser to view the app.
-Visit [`http://localhost:5000/add`](http://localhost:5000//add) to add items to the list
+Visit [`http://localhost:5000/add`](http://localhost:5000//add) to add items to the list. All new items added this way will go to the "New Items" list.
+Visit [`http://localhost:5000/update`](http://localhost:5000//update) to change the status of the items in the board.
