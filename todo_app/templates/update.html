@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block title %}To-Do App{% endblock %}
+
+{% block content %}
+  <div class="jumbotron">
+    <h1 class="display-4">To-Do App</h1>
+    <p class="lead">Just another to-do app.</p>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <form action="" method="post">
+      <h2>Items</h2>
+        {% for item in itemsList %}
+            <p>
+              {{ item.name, item.status }}
+            <p>
+            <input type="radio" id="New Items" name="{{item.id}}" value="New Items">
+            <label for="New Items">New Items</label>
+            <input type="radio" id="To do" name="{{item.id}}" value="To do">
+            <label for="To do">To do</label>
+            <input type="radio" id="Doing" name="{{item.id}}" value="Doing">
+            <label for="Doing">Doing</label>
+            <input type="radio" id="Done" name="{{item.id}}" value="Done">
+            <label for="Done">Done</label>
+            <button type="submit" value="{{item.id}}">submit</button>
+        {% endfor %}
+      </form>
+      <br>
+    </div>
+  </div>
+{% endblock %}
