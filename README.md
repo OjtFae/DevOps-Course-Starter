@@ -68,5 +68,7 @@ Press CTRL+C to quit
  * Debugger PIN: 113-666-066
 ```
 Now visit [`http://localhost:5000/index`](http://localhost:5000//index) in your web browser to view the app.
+
 Visit [`http://localhost:5000/add`](http://localhost:5000//add) to add items to the list. All new items added this way will go to the "New Items" list.
+
 Visit [`http://localhost:5000/update`](http://localhost:5000//update) to change the status of the items in the board.
